@@ -1,0 +1,31 @@
+drop table businessrelation;
+drop table supplier;
+drop table customer;
+drop table sequence_table;
+drop table main;
+
+drop table customer_suppliers;
+drop table customer_supplier;
+drop table customer;
+drop table supplier;
+
+drop table product;
+drop table album;
+
+-----------------------
+
+drop table normal_pack_of_cards;
+drop table normal_pack;
+drop table normal_card;
+
+drop table sequence_table;
+drop table pack_cards;
+drop table card;
+drop table pack;
+
+drop table sequence_table;
+drop table invoice_productsrelation;
+drop table productrelation;
+drop table invoice;
+drop table product;
+

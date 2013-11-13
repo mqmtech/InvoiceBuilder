@@ -1,0 +1,26 @@
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+
+#NOI18N
+codigoLabel.font=Tahoma 11 12 Bold
+addProductoCestaButton.text=
+importeField.text=0.00
+importeLabel.text=Importe
+#NOI18N
+importeLabel.font=Tahoma 11 12 Bold
+cantidadField.text=1
+cantidadLabel.text=Cant.
+#NOI18N
+cantidadLabel.font=Tahoma 11 12 Bold
+precioField.text=0.00
+precioLabel.text=Precio
+#NOI18N
+precioLabel.font=Tahoma 11 12 Bold
+descripcionField.text=Descripcion
+descripcionLabel.text=Descripcion
+#NOI18N
+descripcionLabel.font=Tahoma 11 12 Bold
+codigoField.text=Codigo
+codigoLabel.text=Codigo
+#NOI18N
+addProductoCestaButton.icon=shoppingicons/addcartsimple.png

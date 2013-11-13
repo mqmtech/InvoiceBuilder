@@ -1,0 +1,64 @@
+<Filtros>
+    <cat name="Inicio Regata" desc="Infografías de inicio de regata">
+		<rep name="Itinerario Previsto" personalizacion="false">
+             <infograf name="Analisis de resultados" type="flash" resource="http://www.vueltaespanavela.com/GTI/infographics/Tracker/Tracker_2.swf?action=prueba&amp;titulo=Infografia Tracker" width="700px" height="455px" desc="Infografía Flash" ejey="fgdffdg"> 
+             </infograf>
+    </rep>
+    </cat>
+    <cat name="Adelantamientos" desc="Infografías de adelantamientos">
+		<rep name="Ranking adelantamiento" personalizacion="false">
+		    <infograf name="Ranking adelantamiento" type="flash" resource="http://www.vueltaespanavela.com/GTI/infographics/Ranking/Ranking.swf?action=prueba&amp;titulo=Infografia Ranking" width="640px" height="455px" desc="Infografía Flash" ejey="fgdffdg"> 
+		    </infograf>
+    	</rep>
+        <rep name="Líneas Adelantamientos" personalizacion="false">
+        <infograf name="Líneas Adelantamientos" type="flash" resource="swf/analisis_resultados/main?action=prueba&amp;titulo=Infografia Tracker" width="800px" height="400px" desc="Infografía Flash" ejey="fgdffdg"> 
+        </infograf>
+    	</rep>    
+    </cat>	
+    	
+    <cat name="Lider" desc="Infografías de líderes">
+		
+		<rep name="Liderar Puntos"  personalizacion="true">
+		    <infograf name="Liderar Puntos" type="js" resource="valor=avg_speed" desc="Infografía JavaScript" ejey="fgdffdg"> </infograf>
+		</rep>
+		<rep name="Liderar Porcentage de victoria final" personalizacion="true" >
+		    <infograf name="Liderar Porcentage de victoria final" type="js" resource="valor=avg_speed" desc="Infografía JavaScript" ejey="fgdffdg"> </infograf>
+		</rep>
+    </cat>
+    <cat name="Comparar" desc="Infografías de comparaciones">
+  		<rep name="velocidad" personalizacion="true"> 
+        <infograf name="Velocidad máxima" type="js" resource="valor=speed" desc="Infografía JavaScript" ejey="fgdffdg" >
+          <filter name="Visualizar datos por etapa" value="etapa"/>
+          <filter name="Visualizar datos por fecha" value="fecha"/>
+        </infograf>
+        <infograf name="Velocidad promedio" type="js" resource="valor=avg_speed" desc="Infografía JavaScript" ejey="fgdffdg">
+          <filter name="Visualizar datos por etapa" value="etapa"/>
+          <filter name="Visualizar datos por fecha" value="fecha"/>
+         </infograf>
+  	  </rep>
+  	  <rep name="distancia" personalizacion="true">
+  	  <infograf name="Distancia recorrida" type="js" resource="valor=dtf" desc="Infografía JavaScript" ejey="fgdffdg"> </infograf>
+  	  <infograf name="Distancia a meta" type="js" resource="valor=dtf" desc="Infografía JavaScript" ejey="fgdffdg"> </infograf>
+  	  </rep>
+  	  
+  	  <rep name="Cara a Cara" personalizacion="false">
+		    <infograf name="Cara a Cara" type="flash" resource="swf/cara_a_cara/Face2FaceAmpReals?action=prueba&amp;titulo=Infografia Cara a Cara" width="610px" height="650px" desc="Infografía Flash" ejey="fgdffdg"> 
+		    </infograf>
+    	</rep>
+    	
+    </cat>
+    <cat name="Averias/Suspensiones/Abandonos" desc="Infografías de averias">
+		<rep name="Ranking por Averias(Regata)" personalizacion="true">	
+	        <infograf name="Ranking por Averias(Regata)" type="js" resource="valor=dtf" desc="Infografía JavaScript" ejey="fgdffdg">
+	          <filter name="Visualizar datos por etapa" value="etapa"/>
+            <filter name="Visualizar datos por fecha" value="fecha"/> 
+	        </infograf>
+	    </rep>
+    </cat>
+    <cat name="Finalizacion Regata" desc="Infografías de finalización de regata">
+		<rep name="Tiempo Llegada" desc="Resume la informacion final clasificatoria al acabar la regata." personalizacion="true" >
+		    <infograf name="Tiempo Llegada" type="js" resource="valor=dtf" desc="Infografía JavaScript" ejey="fgdffdg"> </infograf>
+	    </rep>
+    </cat>
+    
+</Filtros>

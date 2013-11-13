@@ -1,0 +1,9 @@
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+
+#NOI18N
+matriculaLabel.font=Tahoma 11 12 Bold
+historialButton.text=
+matriculaLabel.text=Matricula
+#NOI18N
+historialButton.icon=shoppingicons/search.png

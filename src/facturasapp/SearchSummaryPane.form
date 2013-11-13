@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="baseImpLabel" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="totalImporteField" alignment="0" min="-2" pref="66" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="porcentajeIvaLabel" alignment="0" min="-2" pref="42" max="-2" attributes="1"/>
+                  <Component id="porcentIvaField" alignment="0" min="-2" pref="30" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="ImpIvaLabel" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="impIvaField" alignment="0" min="-2" pref="66" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="totalFactField" alignment="0" max="32767" attributes="1"/>
+                  <Component id="totalFactLabel" alignment="0" min="-2" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="GuardarButton" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="GuardarButton" alignment="1" min="-2" max="-2" attributes="1"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ImpIvaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="totalFactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="totalFactField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="impIvaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="porcentajeIvaLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="porcentIvaField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="baseImpLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="totalImporteField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="baseImpLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="baseImpLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="baseImpLabel.text"/>
+        <Property name="name" type="java.lang.String" value="baseImpLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="totalImporteField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="totalImporteField.text"/>
+        <Property name="name" type="java.lang.String" value="totalImporteField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="porcentajeIvaLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="porcentajeIvaLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="porcentajeIvaLabel.text"/>
+        <Property name="name" type="java.lang.String" value="porcentajeIvaLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="porcentIvaField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="porcentIvaField.text"/>
+        <Property name="name" type="java.lang.String" value="porcentIvaField" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="porcentIvaFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ImpIvaLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="ImpIvaLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="ImpIvaLabel.text"/>
+        <Property name="name" type="java.lang.String" value="ImpIvaLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="impIvaField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="impIvaField.text"/>
+        <Property name="name" type="java.lang.String" value="impIvaField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="totalFactLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="totalFactLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="totalFactLabel.text"/>
+        <Property name="name" type="java.lang.String" value="totalFactLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="totalFactField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="totalFactField.text"/>
+        <Property name="name" type="java.lang.String" value="totalFactField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="GuardarButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" resourceKey="GuardarButton.icon"/>
+        <Property name="text" type="java.lang.String" resourceKey="GuardarButton.text"/>
+        <Property name="name" type="java.lang.String" value="GuardarButton" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

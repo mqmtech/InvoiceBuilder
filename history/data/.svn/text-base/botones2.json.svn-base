@@ -1,0 +1,6 @@
+{ nombre: "Personalizacion",  
+	    botones: [ {nombre : "Bar", id:"bar", type:"js", src : "images/bar.jpg"},
+	               {nombre : "Pie", id:"pie",type:"js", src : "images/pie.jpg"},
+	               {nombre : "Column",id:"column", type:"js", src : "images/column.jpg"},
+	    ]
+}

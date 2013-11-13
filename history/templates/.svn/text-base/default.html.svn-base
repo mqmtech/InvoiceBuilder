@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" >
+
+<!-- Widgets and Visualization Logic -->
+ <script src="js/jqueryUI/js/jquery.js" type="text/javascript"></script>
+ 
+ <script src="js/cxapi.js" type="text/javascript"></script>
+ <script type="text/javascript">
+     cx.load("flash", "js/cxflash.js");
+ </script>
+ <!--End Widgets and Visualization Logic  -->
+</head>
+
+<script language="JavaScript" type="text/JavaScript">
+function init(){
+}
+</script>
+
+<body onload="init()">
+
+<div id="maincontainer" class="maincontainer">
+	<div id="titulo" class="titulo">
+		<!--img alt="AutoLavado Navas" src="images/titulo.gif"-->
+                <br/>
+                <!--label id="direccion">
+                    C/ Mallorca, 644-646 <br/>
+                    08027 BARCELONA <br/>
+                    Tel. 93 408 54 97
+                </label-->
+                <br/>
+                <!--label id="cif">
+                    C.I.F. J-59432237
+                </label-->
+	</div>
+
+	<div id="factura" class="factura">
+		<div id="inicio" class="inicio"></div>
+		<div id="cesta" class="cesta"></div>
+		<div id="resumen" class="resumen"></div>
+	</div>
+
+	<div id="final" class="final">
+            <!--label class="tituloservicios">SERVICIOS A SU DISPOSICION</label-->
+            <br/><br/>
+            <!--label class="servicio">.ACEITE Y FILTROS</label>
+            <label class="servicio">.BATERIAS</label>
+            <label class="servicio">.AMORIGUADORES</label-->
+            <br/>
+            <!--label class="servicio">.PASTILLAS DE FRENO</label>
+            <label class="servicio">.TUBOS DE ESCAPE</label-->
+	</div>
+</div>
+
+</body>
+</html>

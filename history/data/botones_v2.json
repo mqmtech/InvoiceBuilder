@@ -1,0 +1,18 @@
+(function() {
+
+var botones = { 
+  nombre: "Personalizacion",  
+  botones: [ {nombre : "Bar", id:"bar", type:"js", src : "images/bar.jpg"},
+	           {nombre : "Pie", id:"pie",type:"js", src : "images/pie.jpg"},
+	           {nombre : "Column",id:"column", type:"js", src : "images/column.jpg"},
+	           {nombre : "Cara a Cara", id:"vs",type:"flash", src : "images/vs.jpg", resource: "swf/cara_a_cara/Face2FaceAmpReals.swf",
+	        	style : {width: "610px", height:"560px"}},
+	           {nombre : "Ranking", id:"ranking", type:"flash", src : "images/ranking.jpg", resource: "swf/ranking/Ranking.swf",
+	        	style : {width: "610px", height:"560px"}},	               
+	           {nombre : "Analisis de resultados",id:"analysis", type:"flash", src : "images/analisis.jpg", resource: "swf/analisis_resultados/main.swf",
+	            style : {width: "930px", height:"400px"}}
+	    ]
+}
+ 
+ return botones;
+})();

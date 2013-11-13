@@ -1,0 +1,435 @@
+/*
+ * FacturasView.java
+ */
+
+package facturasapp;
+
+import com.jhlabs.image.BlurFilter;
+import facturasapp.data.DataManager;
+import facturasapp.data.URIManager;
+import facturasapp.events.EventManager;
+import facturasapp.events.FacturaAdapter;
+import facturasapp.events.FacturaEvent;
+import facturasapp.events.FacturaListener;
+import facturasapp.events.SearchAdapter;
+import facturasapp.events.SearchEvent;
+import facturasapp.events.SearchListener;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.color.ColorSpace;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jdesktop.application.Action;
+import org.jdesktop.application.ResourceMap;
+import org.jdesktop.application.SingleFrameApplication;
+import org.jdesktop.application.FrameView;
+import org.jdesktop.application.TaskMonitor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Ellipse2D;
+import java.awt.image.ColorConvertOp;
+import javax.swing.BorderFactory;
+import javax.swing.Timer;
+import javax.swing.Icon;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.border.Border;
+import org.jdesktop.jxlayer.JXLayer;
+import org.jdesktop.jxlayer.plaf.effect.*;
+import org.jdesktop.jxlayer.plaf.ext.LockableUI;
+import org.jdesktop.swingx.painter.BusyPainter;
+
+/**
+ * The application's main frame.
+ */
+public class FacturasView extends FrameView {
+
+    public FacturasView(SingleFrameApplication app) {
+        super(app);
+
+        initComponents();
+        initCustomComponents();
+
+        // status bar initialization - message timeout, idle icon and busy animation, etc
+        ResourceMap resourceMap = getResourceMap();
+        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+        messageTimer = new Timer(messageTimeout, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                statusMessageLabel.setText("");
+            }
+        });
+        messageTimer.setRepeats(false);
+        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+        for (int i = 0; i < busyIcons.length; i++) {
+            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
+        }
+        busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
+                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
+            }
+        });
+        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
+        statusAnimationLabel.setIcon(idleIcon);
+        progressBar.setVisible(false);
+
+        // connecting action tasks to status bar via TaskMonitor
+        TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
+        taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                String propertyName = evt.getPropertyName();
+                if ("started".equals(propertyName)) {
+                    if (!busyIconTimer.isRunning()) {
+                        statusAnimationLabel.setIcon(busyIcons[0]);
+                        busyIconIndex = 0;
+                        busyIconTimer.start();
+                    }
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(true);
+                } else if ("done".equals(propertyName)) {
+                    busyIconTimer.stop();
+                    statusAnimationLabel.setIcon(idleIcon);
+                    progressBar.setVisible(false);
+                    progressBar.setValue(0);
+                } else if ("message".equals(propertyName)) {
+                    String text = (String)(evt.getNewValue());
+                    statusMessageLabel.setText((text == null) ? "" : text);
+                    messageTimer.restart();
+                } else if ("progress".equals(propertyName)) {
+                    int value = (Integer)(evt.getNewValue());
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(false);
+                    progressBar.setValue(value);
+                }
+            }
+        });
+    }
+
+    @Action
+    public void showAboutBox() {
+        if (aboutBox == null) {
+            JFrame mainFrame = FacturasApp.getApplication().getMainFrame();
+            aboutBox = new FacturasAboutBox(mainFrame);
+            aboutBox.setLocationRelativeTo(mainFrame);
+        }
+        FacturasApp.getApplication().show(aboutBox);
+    }
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        mainPanel = new javax.swing.JPanel();
+        MainTabPane = new javax.swing.JTabbedPane();
+        menuBar = new javax.swing.JMenuBar();
+        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
+        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
+        statusPanel = new javax.swing.JPanel();
+        statusMessageLabel = new javax.swing.JLabel();
+        statusAnimationLabel = new javax.swing.JLabel();
+        progressBar = new javax.swing.JProgressBar();
+        infoLabel = new javax.swing.JLabel();
+        companyLabel = new javax.swing.JLabel();
+
+        mainPanel.setName("mainPanel"); // NOI18N
+
+        MainTabPane.setName("MainTabPane"); // NOI18N
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MainTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MainTabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+        );
+
+        menuBar.setName("menuBar"); // NOI18N
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(facturasapp.FacturasApp.class).getContext().getResourceMap(FacturasView.class);
+        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
+        fileMenu.setName("fileMenu"); // NOI18N
+
+        jSeparator1.setName("jSeparator1"); // NOI18N
+        fileMenu.add(jSeparator1);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/facturasapp/resources/shoppingicons/new_invoice.png"))); // NOI18N
+        jMenuItem1.setText(resourceMap.getString("jMenuItem1.text")); // NOI18N
+        jMenuItem1.setName("jMenuItem1"); // NOI18N
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        fileMenu.add(jMenuItem1);
+
+        jSeparator2.setName("jSeparator2"); // NOI18N
+        fileMenu.add(jSeparator2);
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(facturasapp.FacturasApp.class).getContext().getActionMap(FacturasView.class, this);
+        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
+        exitMenuItem.setText(resourceMap.getString("exitMenuItem.text")); // NOI18N
+        exitMenuItem.setName("exitMenuItem"); // NOI18N
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
+
+        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
+        helpMenu.setName("helpMenu"); // NOI18N
+
+        jMenuItem2.setAction(actionMap.get("soporteOnlineMouseClicked")); // NOI18N
+        jMenuItem2.setText(resourceMap.getString("jMenuItem2.text")); // NOI18N
+        jMenuItem2.setName("jMenuItem2"); // NOI18N
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        helpMenu.add(jMenuItem2);
+
+        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
+        aboutMenuItem.setText(resourceMap.getString("aboutMenuItem.text")); // NOI18N
+        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
+        helpMenu.add(aboutMenuItem);
+
+        menuBar.add(helpMenu);
+
+        statusPanel.setName("statusPanel"); // NOI18N
+
+        statusMessageLabel.setName("statusMessageLabel"); // NOI18N
+
+        statusAnimationLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        statusAnimationLabel.setName("statusAnimationLabel"); // NOI18N
+
+        progressBar.setName("progressBar"); // NOI18N
+
+        infoLabel.setText(resourceMap.getString("infoLabel.text")); // NOI18N
+        infoLabel.setName("infoLabel"); // NOI18N
+
+        companyLabel.setText(resourceMap.getString("companyLabel.text")); // NOI18N
+        companyLabel.setName("companyLabel"); // NOI18N
+        companyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                companyLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                companyLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                companyLabelMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
+        statusPanel.setLayout(statusPanelLayout);
+        statusPanelLayout.setHorizontalGroup(
+            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statusPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(statusMessageLabel)
+                    .addComponent(companyLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(statusAnimationLabel)
+                .addContainerGap())
+        );
+        statusPanelLayout.setVerticalGroup(
+            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statusPanelLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusMessageLabel)
+                    .addComponent(statusAnimationLabel)
+                    .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3))
+            .addComponent(infoLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(companyLabel))
+        );
+
+        setComponent(mainPanel);
+        setMenuBar(menuBar);
+        setStatusBar(statusPanel);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        EventManager.getInstance().fireFacturaEvent(new FacturaEvent(this), EventManager.INVOICE_NEW);
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void companyLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_companyLabelMouseEntered
+        companyLabel.setForeground(Color.blue);
+        companyLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_companyLabelMouseEntered
+
+    private void companyLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_companyLabelMouseExited
+        companyLabel.setForeground(Color.black);
+        companyLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_companyLabelMouseExited
+
+    private void companyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_companyLabelMouseClicked
+        URIManager.browse("http://mqmtech.appspot.com");
+    }//GEN-LAST:event_companyLabelMouseClicked
+
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
+        //URIManager.browse("http://mqmtech.appspot.com/products/soft/factbuilder");
+        System.out.println("browsing...");
+        //URIManager.browse("http://mqmtech.appspot.com");
+        
+    }//GEN-LAST:event_jMenuItem2MouseClicked
+
+    public void initCustomComponents(){
+        
+        jxInvoicePane = new JXLayer(invoicePane, lockableUI);
+        MainTabPane.addTab("Factura", jxInvoicePane);
+        MainTabPane.addTab("Historial", searchPane);
+
+        EventManager.getInstance().addFacturaListener(new FacturaAdapter() {
+
+            public void invoiceStored(FacturaEvent e) {
+                System.out.println("Invoice Stored");
+               //lockableUI  =  new LockableUI(new BufferedImageOpEffect(new BlurFilter()));
+                lockableUI.setLocked(true);
+                MainTabPane.revalidate();
+                MainTabPane.repaint();
+            }
+
+            public void newInvoice(FacturaEvent e) {
+                System.out.println("New invoice received");
+                lockableUI.setLocked(false);
+                MainTabPane.revalidate();
+                MainTabPane.repaint();
+
+               // MainTabPane.addTab("Factura", invoicePane);
+            }
+        });
+
+        EventManager.getInstance().addSearchListener(new SearchAdapter() {
+            public void newSearch(SearchEvent e) {
+                MainTabPane.setEnabledAt(1, true);
+                //MainTabPane.getTabComponentAt(1).setEnabled(true);
+            }
+        });
+
+    }
+
+    @Action
+    public void soporteOnlineMouseClicked() {
+        URIManager.browse("http://mqmtech.appspot.com/products/soft/factbuilder/index.html");
+        System.out.println("browsing...");
+    }
+
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane MainTabPane;
+    private javax.swing.JLabel companyLabel;
+    private javax.swing.JLabel infoLabel;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JProgressBar progressBar;
+    private javax.swing.JLabel statusAnimationLabel;
+    private javax.swing.JLabel statusMessageLabel;
+    private javax.swing.JPanel statusPanel;
+    // End of variables declaration//GEN-END:variables
+
+    /////Custom Variables///////
+    JXLayer jxInvoicePane = new JXLayer();
+    LockableUI lockableUI = new BusyPainterUI();
+    
+    InvoicePane invoicePane = new InvoicePane();
+    SearchPane searchPane = new SearchPane();
+    /////End Custom Variables///////
+
+    private final Timer messageTimer;
+    private final Timer busyIconTimer;
+    private final Icon idleIcon;
+    private final Icon[] busyIcons = new Icon[15];
+    private int busyIconIndex = 0;
+
+    private JDialog aboutBox;
+}
+
+/**
+     * Subclass of the {@link LockableUI} which uses the {@link BusyPainterUI}
+     * from the SwingX project to implement the "busy effect"
+     * when {@link JXLayer} is locked.
+     */
+    class BusyPainterUI extends LockableUI
+            implements ActionListener {
+        private BusyPainter<JComponent> busyPainter;
+        private Timer timer;
+        private int frameNumber;
+
+        public BusyPainterUI() {
+            busyPainter = new BusyPainter<JComponent>() {
+                protected void doPaint(Graphics2D g, JComponent object,
+                                       int width, int height) {
+                    // centralize the effect
+                    Rectangle r = getTrajectory().getBounds();
+                    int tw = width - r.width - 2 * r.x;
+                    int th = height - r.height - 2 * r.y;
+                    g.translate(tw / 2, th / 2);
+                    super.doPaint(g, object, width, height);
+                }
+
+            };
+            busyPainter.setBaseColor(new Color(50, 100, 200, 50));
+            busyPainter.setPointShape(new Ellipse2D.Double(0, 0, 20, 20));
+            busyPainter.setTrajectory(new Ellipse2D.Double(0, 0, 100, 100));
+            timer = new Timer(100, this);
+        }
+
+        @Override
+        protected void paintLayer(Graphics2D g2, JXLayer<? extends JComponent> l) {
+            super.paintLayer(g2, l);
+            if (isLocked()) {
+                busyPainter.paint(g2, l, l.getWidth(), l.getHeight());
+            }
+        }
+
+        @Override
+        public void setLocked(boolean isLocked) {
+            super.setLocked(isLocked);
+            if (isLocked) {
+                timer.start();
+            } else {
+                timer.stop();
+            }
+        }
+
+        // Change the frame for the busyPainter
+        // and mark BusyPainterUI as dirty
+        public void actionPerformed(ActionEvent e) {
+            frameNumber = (frameNumber + 1) % 8;
+            busyPainter.setFrame(frameNumber);
+            // this will repaint the layer
+            setDirty(true);
+        }
+    }

@@ -1,0 +1,12 @@
+facturaIdField.text=Factura
+#NOI18N
+facturaIdField.font=Tahoma 11 12 12 Bold
+fechaField.text=Fecha
+#NOI18N
+fechaField.font=Tahoma 11 12 12 Bold
+matriculaField.text=Matricula
+#NOI18N
+matriculaField.font=Tahoma 11 12 12 Bold
+modeloField.text=Modelo
+#NOI18N
+modeloField.font=Tahoma 11 12 12 Bold

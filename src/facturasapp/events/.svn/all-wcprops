@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events
+END
+Main.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/Main.java
+END
+FacturaAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/FacturaAdapter.java
+END
+SearchAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/SearchAdapter.java
+END
+FacturaEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/FacturaEvent.java
+END
+SearchEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/SearchEvent.java
+END
+FacturaListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/FacturaListener.java
+END
+SearchListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/SearchListener.java
+END
+EventManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/projects/iaf/!svn/ver/2705/EVEngine/demos/NetbeansWS/FacturasApp/src/facturasapp/events/EventManager.java
+END

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <link rel="stylesheet" type="text/css" href="css/reset.css" /> 
+  <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+  <!-- Widgets and Visualization Logic --> 
+  <script src="js/jqueryUI/js/jquery.js" type="text/javascript"></script> 
+  <script src="js/cxapi.js" type="text/javascript"></script> 
+  <script type="text/javascript">
+     cx.load("flash", "js/cxflash.js");
+ </script> 
+  <!--End Widgets and Visualization Logic  --> 
+ </head> 
+ <head>
+  <script language="JavaScript" type="text/JavaScript">
+function init(){
+	
+}
+</script> 
+ </head>
+ <body onload="init()"> 
+  <div id="maincontainer" class="maincontainer"> 
+   <div id="titulo" class="titulo"> <img alt="AutoLavado Navas" src="images/titulo.gif" /> <br /> 
+    <form>
+     <label id="direccion"> C/ Mallorca, 644-646 <br /> 08027 BARCELONA <br /> Tel. 93 408 54 97 </label> <br /> <label id="cif"> C.I.F. J-59432237 </label> 
+    </form>
+   </div> 
+   <div id="factura" class="factura"> 
+    <div id="inicio" class="inicio">
+     <table border="0">
+      <tr>
+       <th>
+        FACTURA
+       </th>
+       <th>
+        FECHA
+       </th>
+       <th>
+        MATRICULA
+       </th>
+       <th>
+        MODELO
+       </th>
+      </tr>
+      <tr>
+       <td>
+        46
+       </td>
+       <td>
+        Wed Jul 28 20:51:41 CEST 2010
+       </td>
+       <td>
+        matri01
+       </td>
+       <td>
+        model01
+       </td>
+      </tr>
+     </table>
+    </div> 
+    <div id="cesta" class="cesta">
+     <table border="0">
+      <tr>
+       <th class="code">
+        CODIGO
+       </th>
+       <th class="desc">
+        DESCRIPCION
+       </th>
+       <th class="imp">
+        PRECIO
+       </th>
+       <th class="cant">
+        CANT.
+       </th>
+       <th class="imp">
+        IMPORTE
+       </th>
+      </tr>
+      <tr>
+       <td>
+        Codigo02
+       </td>
+       <td>
+        Descripccoin para el codigo 02 nuevo
+       </td>
+       <td>
+        20.5
+       </td>
+       <td>
+        1
+       </td>
+       <td>
+        20.5
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Codigo02
+       </td>
+       <td>
+        Descripccoin para el codigo 02 nuevo
+       </td>
+       <td>
+        20.5
+       </td>
+       <td>
+        3
+       </td>
+       <td>
+        61.5
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Codigo01
+       </td>
+       <td>
+        Descripccion para el codigo 01
+       </td>
+       <td>
+        10.5
+       </td>
+       <td>
+        1
+       </td>
+       <td>
+        10.5
+       </td>
+      </tr>
+     </table>
+    </div> 
+    <div id="resumen" class="resumen">
+     <table border="0">
+      <tr>
+       <th>
+        BASE IMP.
+       </th>
+       <th>
+        % IVA
+       </th>
+       <th>
+        IMPORTE IVA
+       </th>
+       <th>
+        TOTAL FACTURA
+       </th>
+      </tr>
+      <tr>
+       <td>
+        92.5
+       </td>
+       <td>
+        18.0
+       </td>
+       <td>
+        16.65
+       </td>
+       <td>
+        109.15
+       </td>
+      </tr>
+     </table>
+    </div> 
+   </div> 
+   <div id="final" class="final"> 
+    <form>
+     <label class="tituloservicios">SERVICIOS A SU DISPOSICION</label> <br /><br /> <label class="servicio">.ACEITE Y FILTROS</label> <label class="servicio">.BATERIAS</label> <label class="servicio">.AMORIGUADORES</label> <br /> <label class="servicio">.PASTILLAS DE FRENO</label> <label class="servicio">.TUBOS DE ESCAPE</label> 
+    </form>
+   </div> 
+  </div>  
+ </body>
+</html>

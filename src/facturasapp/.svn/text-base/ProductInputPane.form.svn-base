@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="codigoField" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Component id="codigoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="descripcionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="descripcionField" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="precioField" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cantidadField" min="-2" pref="30" max="-2" attributes="1"/>
+                  <Component id="cantidadLabel" min="-2" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="importeLabel" min="-2" max="-2" attributes="1"/>
+                  <Component id="importeField" min="-2" pref="68" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="addProductoCestaButton" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="addProductoCestaButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="importeLabel" alignment="3" pref="25" max="32767" attributes="1"/>
+                          <Component id="cantidadLabel" alignment="3" min="-2" max="-2" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="codigoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="codigoField" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="descripcionLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="descripcionField" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="precioLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="precioField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="importeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="codigoLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="codigoLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="codigoLabel.text"/>
+        <Property name="name" type="java.lang.String" value="codigoLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="codigoField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="codigoField.text"/>
+        <Property name="name" type="java.lang.String" value="codigoField" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="codigoFieldFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="codigoFieldFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="descripcionLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="descripcionLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="descripcionLabel.text"/>
+        <Property name="name" type="java.lang.String" value="descripcionLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="descripcionField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="descripcionField.text"/>
+        <Property name="name" type="java.lang.String" value="descripcionField" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="descripcionFieldFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="precioLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="precioLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="precioLabel.text"/>
+        <Property name="name" type="java.lang.String" value="precioLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="precioField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="precioField.text"/>
+        <Property name="name" type="java.lang.String" value="precioField" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="precioFieldFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="precioFieldFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cantidadLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="cantidadLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="cantidadLabel.text"/>
+        <Property name="name" type="java.lang.String" value="cantidadLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cantidadField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="cantidadField.text"/>
+        <Property name="name" type="java.lang.String" value="cantidadField" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cantidadFieldFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cantidadFieldFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="importeLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="importeLabel.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="importeLabel.text"/>
+        <Property name="name" type="java.lang.String" value="importeLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="importeField">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="importeField.text"/>
+        <Property name="name" type="java.lang.String" value="importeField" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="addProductoCestaButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" resourceKey="addProductoCestaButton.icon"/>
+        <Property name="text" type="java.lang.String" resourceKey="addProductoCestaButton.text"/>
+        <Property name="name" type="java.lang.String" value="addProductoCestaButton" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProductoCestaButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
